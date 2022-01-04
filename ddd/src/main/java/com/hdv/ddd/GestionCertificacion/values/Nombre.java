@@ -1,9 +1,8 @@
-package com.hdv.ddd.valuesGenerics;
+package com.hdv.ddd.GestionCertificacion.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class NombreCompleto implements ValueObject<String> {
-
+public class Nombre implements ValueObject<String> {
     @Override
     public String value() {
         return null;

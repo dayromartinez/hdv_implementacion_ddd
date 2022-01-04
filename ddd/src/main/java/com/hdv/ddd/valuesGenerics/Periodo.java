@@ -2,10 +2,12 @@ package com.hdv.ddd.valuesGenerics;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class NombreCompleto implements ValueObject<String> {
+import java.util.List;
+
+public class Periodo implements ValueObject<List<String>> {
 
     @Override
-    public String value() {
+    public List<String> value() {
         return null;
     }
 }
