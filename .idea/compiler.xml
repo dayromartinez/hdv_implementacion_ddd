@@ -9,7 +9,7 @@
         <module name="ddd" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17">
+    <bytecodeTargetLevel target="11">
       <module name="ddd" target="11" />
     </bytecodeTargetLevel>
   </component>
