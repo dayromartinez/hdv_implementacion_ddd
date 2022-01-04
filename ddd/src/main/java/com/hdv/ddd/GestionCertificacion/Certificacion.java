@@ -8,9 +8,9 @@ import com.hdv.ddd.valuesGenerics.Periodo;
 
 public class Certificacion extends Entity<CertificacionId> {
 
-    protected Nombre nombre;
-    protected Institucion institucion;
-    protected Periodo periodo;
+    private Nombre nombre;
+    private Institucion institucion;
+    private Periodo periodo;
 
     public Certificacion(CertificacionId entityId, Nombre nombre, Institucion institucion, Periodo periodo) {
         super(entityId);

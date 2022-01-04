@@ -9,10 +9,10 @@ import com.hdv.ddd.valuesGenerics.Periodo;
 
 public class Educacion extends Entity<EducacionId> {
 
-    protected Tipo tipo;
-    protected Estudio estudio;
-    protected Institucion institucion;
-    protected Periodo periodo;
+    private Tipo tipo;
+    private Estudio estudio;
+    private Institucion institucion;
+    private Periodo periodo;
 
     public Educacion(EducacionId entityId, Tipo tipo, Estudio estudio, Institucion institucion, Periodo periodo) {
         super(entityId);

@@ -7,8 +7,8 @@ import com.hdv.ddd.valuesGenerics.NombreCompleto;
 
 public class Referencia extends Entity<ReferenciaId> {
 
-    protected InformacionContacto informacionContacto;
-    protected NombreCompleto nombreCompleto;
+    private InformacionContacto informacionContacto;
+    private NombreCompleto nombreCompleto;
 
     public Referencia(ReferenciaId entityId, InformacionContacto informacionContacto, NombreCompleto nombreCompleto) {
         super(entityId);
