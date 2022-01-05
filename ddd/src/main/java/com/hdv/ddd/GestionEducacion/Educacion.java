@@ -7,6 +7,8 @@ import com.hdv.ddd.GestionEducacion.values.Tipo;
 import com.hdv.ddd.valuesGenerics.Institucion;
 import com.hdv.ddd.valuesGenerics.Periodo;
 
+import java.util.Objects;
+
 public class Educacion extends Entity<EducacionId> {
 
     private Tipo tipo;
@@ -20,5 +22,37 @@ public class Educacion extends Entity<EducacionId> {
         this.estudio = estudio;
         this.institucion = institucion;
         this.periodo = periodo;
+    }
+
+    public void actualizarTipo(Tipo tipo){
+        this.tipo = Objects.requireNonNull(tipo);
+    }
+
+    public void actualizarEstudio(Estudio estudio){
+        this.estudio = Objects.requireNonNull(estudio);
+    }
+
+    public void actualizarInstitucion(Institucion institucion){
+        this.institucion = Objects.requireNonNull(institucion);
+    }
+
+    public void actualizarPeriodo(Periodo periodo){
+        this.periodo = Objects.requireNonNull(periodo);
+    }
+
+    public Tipo tipo() {
+        return tipo;
+    }
+
+    public Estudio estudio() {
+        return estudio;
+    }
+
+    public Institucion institucion() {
+        return institucion;
+    }
+
+    public Periodo periodo() {
+        return periodo;
     }
 }
