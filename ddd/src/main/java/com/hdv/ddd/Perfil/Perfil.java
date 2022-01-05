@@ -14,6 +14,7 @@ import com.hdv.ddd.valuesGenerics.NombreCompleto;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Perfil extends AggregateEvent<PerfilId> {
 
@@ -25,6 +26,11 @@ public class Perfil extends AggregateEvent<PerfilId> {
     public Perfil(PerfilId entityId, HojaDeVidaId hojaDeVidaId, InformacionContacto informacionContacto, FotoPerfil fotoPerfil) {
         super(entityId);
         appendChange(new PerfilCreado(hojaDeVidaId, informacionContacto, fotoPerfil)).apply();
+    }
+
+    private Perfil(PerfilId perfilId){
+        super(perfilId);
+        subscribe(new PerfilChange(this));
     }
 
     public void agregarReferencia(ReferenciaId entityId, InformacionContacto informacionContacto, NombreCompleto nombreCompleto){
@@ -44,6 +50,12 @@ public class Perfil extends AggregateEvent<PerfilId> {
         Objects.requireNonNull(referenciaId);
         Objects.requireNonNull(nombreCompleto);
         appendChange(new NombreCompletoReferenciaActualizado(referenciaId, nombreCompleto)).apply();
+    }
+
+    public Optional<Referencia> getReferenciaPorId(ReferenciaId referenciaId){
+        return referencias.stream()
+                .filter(referencia -> referencia.identity().equals(referenciaId))
+                .findFirst();
     }
 
     public HojaDeVidaId hojaDeVidaId() {

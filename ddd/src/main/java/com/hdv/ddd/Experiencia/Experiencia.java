@@ -11,6 +11,7 @@ import com.hdv.ddd.valuesGenerics.Periodo;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Experiencia extends AggregateEvent<ExperienciaId> {
 
@@ -20,6 +21,11 @@ public class Experiencia extends AggregateEvent<ExperienciaId> {
     public Experiencia(ExperienciaId entityId, HojaDeVidaId hojaDeVidaId) {
         super(entityId);
         appendChange(new ExperienciaCreada(hojaDeVidaId)).apply();
+    }
+
+    private Experiencia(ExperienciaId experienciaId){
+        super(experienciaId);
+        subscribe(new ExperienciaChange(this));
     }
 
     public void agregarExperienciaLaboral(ExperienciaLaboralId entityId, Institucion institucion, Periodo periodo, ConocimientosAdquiridos conocimientosAdquiridos){
@@ -46,6 +52,12 @@ public class Experiencia extends AggregateEvent<ExperienciaId> {
         Objects.requireNonNull(experienciaLaboralId);
         Objects.requireNonNull(conocimientosAdquiridos);
         appendChange(new ConocimientosAdquiridosActualizados(experienciaLaboralId, conocimientosAdquiridos)).apply();
+    }
+
+    public Optional<ExperienciaLaboral> getExperienciaLaboralPorId(ExperienciaLaboralId experienciaLaboralId){
+        return experiencias.stream()
+                .filter((experienciaLaboral) -> experienciaLaboral.identity().equals(experienciaLaboralId))
+                .findFirst();
     }
 
     public HojaDeVidaId hojaDeVidaId() {

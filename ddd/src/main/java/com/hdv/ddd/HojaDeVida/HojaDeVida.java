@@ -10,4 +10,5 @@ public class HojaDeVida extends AggregateEvent<HojaDeVidaId> {
         super(entityId);
         appendChange(new HojaDeVidaCreada(entityId)).apply();
     }
+
 }

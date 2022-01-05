@@ -12,6 +12,7 @@ import com.hdv.ddd.valuesGenerics.Periodo;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class GestionEducacion extends AggregateEvent<GestionEducacionId> {
 
@@ -21,6 +22,11 @@ public class GestionEducacion extends AggregateEvent<GestionEducacionId> {
     public GestionEducacion(GestionEducacionId entityId, HojaDeVidaId hojaDeVidaId) {
         super(entityId);
         appendChange(new GestionEducacionCreada(hojaDeVidaId)).apply();
+    }
+
+    private GestionEducacion(GestionEducacionId gestionEducacionId){
+        super(gestionEducacionId);
+        subscribe(new GestionEducacionChange(this));
     }
 
     public void agregarEducacion(EducacionId entityId, Tipo tipo, Estudio estudio, Institucion institucion, Periodo periodo){
@@ -54,6 +60,12 @@ public class GestionEducacion extends AggregateEvent<GestionEducacionId> {
         Objects.requireNonNull(educacionId);
         Objects.requireNonNull(periodo);
         appendChange(new PeriodoEducacionActualizado(educacionId, periodo)).apply();
+    }
+
+    public Optional<Educacion> getEducacionPorId(EducacionId educacionId){
+        return educaciones.stream()
+                .filter(educacion -> educacion.identity().equals(educacionId))
+                .findFirst();
     }
 
     public HojaDeVidaId hojaDeVidaId() {

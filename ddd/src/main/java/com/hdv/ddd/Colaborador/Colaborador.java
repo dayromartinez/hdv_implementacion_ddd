@@ -26,6 +26,11 @@ public class Colaborador extends AggregateEvent<Cedula> {
         appendChange(new ColaboradorCreado(hojaDeVidaId, nombreCompleto, fechaNacimiento, genero, area)).apply();
     }
 
+    private Colaborador(Cedula cedula){
+        super(cedula);
+        subscribe(new ColaboradorChange(this));
+    }
+
     public void agregarPerfil(HojaDeVidaId hojaDeVidaId, PerfilId perfilId){
         Objects.requireNonNull(hojaDeVidaId);
         Objects.requireNonNull(perfilId);
