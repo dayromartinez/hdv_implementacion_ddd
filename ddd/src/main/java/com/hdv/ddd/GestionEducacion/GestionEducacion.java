@@ -1,6 +1,7 @@
 package com.hdv.ddd.GestionEducacion;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.hdv.ddd.GestionEducacion.events.*;
 import com.hdv.ddd.GestionEducacion.values.EducacionId;
 import com.hdv.ddd.GestionEducacion.values.Estudio;
@@ -27,6 +28,12 @@ public class GestionEducacion extends AggregateEvent<GestionEducacionId> {
     private GestionEducacion(GestionEducacionId gestionEducacionId){
         super(gestionEducacionId);
         subscribe(new GestionEducacionChange(this));
+    }
+
+    public static GestionEducacion from(GestionEducacionId gestionEducacionId, List<DomainEvent> events){
+        var gestionEducacion = new GestionEducacion(gestionEducacionId);
+        events.forEach(gestionEducacion::applyEvent);
+        return gestionEducacion;
     }
 
     public void agregarEducacion(EducacionId entityId, Tipo tipo, Estudio estudio, Institucion institucion, Periodo periodo){

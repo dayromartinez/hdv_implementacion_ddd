@@ -1,6 +1,7 @@
 package com.hdv.ddd.Perfil;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.hdv.ddd.Perfil.events.InformacionContactoReferenciaActualizada;
 import com.hdv.ddd.Perfil.events.NombreCompletoReferenciaActualizado;
 import com.hdv.ddd.Perfil.events.PerfilCreado;
@@ -33,6 +34,12 @@ public class Perfil extends AggregateEvent<PerfilId> {
         subscribe(new PerfilChange(this));
     }
 
+    public static Perfil from(PerfilId perfilId, List<DomainEvent> events){
+        var perfil = new Perfil(perfilId);
+        events.forEach(perfil::applyEvent);
+        return perfil;
+    }
+
     public void agregarReferencia(ReferenciaId entityId, InformacionContacto informacionContacto, NombreCompleto nombreCompleto){
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(informacionContacto);
@@ -46,7 +53,7 @@ public class Perfil extends AggregateEvent<PerfilId> {
         appendChange(new InformacionContactoReferenciaActualizada(referenciaId, informacionContacto)).apply();
     }
 
-    public void actualizarNombreCompleto(ReferenciaId referenciaId, NombreCompleto nombreCompleto){
+    public void actualizarNombreCompletoReferencia(ReferenciaId referenciaId, NombreCompleto nombreCompleto){
         Objects.requireNonNull(referenciaId);
         Objects.requireNonNull(nombreCompleto);
         appendChange(new NombreCompletoReferenciaActualizado(referenciaId, nombreCompleto)).apply();

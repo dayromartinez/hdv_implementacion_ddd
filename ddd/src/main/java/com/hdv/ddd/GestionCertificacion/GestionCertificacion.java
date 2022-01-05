@@ -1,6 +1,7 @@
 package com.hdv.ddd.GestionCertificacion;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.hdv.ddd.GestionCertificacion.events.*;
 import com.hdv.ddd.GestionCertificacion.values.CertificacionId;
 import com.hdv.ddd.GestionCertificacion.values.GestionCertificacionId;
@@ -28,6 +29,12 @@ public class GestionCertificacion extends AggregateEvent<GestionCertificacionId>
         subscribe(new GestionCertificacionChange(this));
     }
 
+    public static GestionCertificacion from(GestionCertificacionId gestionCertificacionId, List<DomainEvent> events){
+        var gestionCertificacion = new GestionCertificacion(gestionCertificacionId);
+        events.forEach(gestionCertificacion::applyEvent);
+        return gestionCertificacion;
+    }
+
     public void agregarCertificacion(CertificacionId entityId, Nombre nombre, Institucion institucion, Periodo periodo){
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(nombre);
@@ -48,7 +55,7 @@ public class GestionCertificacion extends AggregateEvent<GestionCertificacionId>
         appendChange(new InstitucionCertificacionActualizada(certificacionId, institucion)).apply();
     }
 
-    public void actualizarPeriodo(CertificacionId certificacionId, Periodo periodo){
+    public void actualizarPeriodoCertificacion(CertificacionId certificacionId, Periodo periodo){
         Objects.requireNonNull(certificacionId);
         Objects.requireNonNull(periodo);
         appendChange(new PeriodoCertificacionActualizado(certificacionId, periodo)).apply();

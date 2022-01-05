@@ -1,6 +1,7 @@
 package com.hdv.ddd.Experiencia;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.hdv.ddd.Experiencia.events.*;
 import com.hdv.ddd.Experiencia.values.ConocimientosAdquiridos;
 import com.hdv.ddd.Experiencia.values.ExperienciaId;
@@ -26,6 +27,12 @@ public class Experiencia extends AggregateEvent<ExperienciaId> {
     private Experiencia(ExperienciaId experienciaId){
         super(experienciaId);
         subscribe(new ExperienciaChange(this));
+    }
+
+    public static Experiencia from(ExperienciaId experienciaId, List<DomainEvent> events){
+        var experiencia = new Experiencia(experienciaId);
+        events.forEach(experiencia::applyEvent);
+        return experiencia;
     }
 
     public void agregarExperienciaLaboral(ExperienciaLaboralId entityId, Institucion institucion, Periodo periodo, ConocimientosAdquiridos conocimientosAdquiridos){

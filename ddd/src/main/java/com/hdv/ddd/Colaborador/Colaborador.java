@@ -1,6 +1,7 @@
 package com.hdv.ddd.Colaborador;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.hdv.ddd.Colaborador.events.*;
 import com.hdv.ddd.Colaborador.values.Area;
 import com.hdv.ddd.Colaborador.values.Cedula;
@@ -10,6 +11,7 @@ import com.hdv.ddd.Perfil.values.PerfilId;
 import com.hdv.ddd.valuesGenerics.HojaDeVidaId;
 import com.hdv.ddd.valuesGenerics.NombreCompleto;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Colaborador extends AggregateEvent<Cedula> {
@@ -29,6 +31,12 @@ public class Colaborador extends AggregateEvent<Cedula> {
     private Colaborador(Cedula cedula){
         super(cedula);
         subscribe(new ColaboradorChange(this));
+    }
+
+    public static Colaborador from(Cedula cedula, List<DomainEvent> events){
+        var colaborador = new Colaborador(cedula);
+        events.forEach(colaborador::applyEvent);
+        return colaborador;
     }
 
     public void agregarPerfil(HojaDeVidaId hojaDeVidaId, PerfilId perfilId){
