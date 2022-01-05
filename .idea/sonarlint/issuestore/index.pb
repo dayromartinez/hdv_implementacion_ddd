@@ -1,6 +1,4 @@
 
-;
-ddd/pom.xml,c\9\c9053fd23a13fde3bc7355236e7f3a51bf388b42
 
 Oddd/src/main/java/com/hdv/ddd/Colaborador/events/NombreCompletoActualizado.java,4\d\4dd8060b3fa04af2918320b08cbb3423fcd214da
 w
@@ -31,8 +29,6 @@ Zddd/src/main/java/com/hdv/ddd/GestionEducacion/events/InstitucionEducacionActua
 Vddd/src/main/java/com/hdv/ddd/GestionEducacion/events/PeriodoEducacionActualizado.java,8\0\80b26aa254688ecc3942d836d25b0aed97a4dafd
 É
 Sddd/src/main/java/com/hdv/ddd/GestionEducacion/events/TipoEducacionActualizado.java,5\7\5765789e5f7a1fa7805f867dbfae728d7468b493
-u
-Eddd/src/main/java/com/hdv/ddd/HojaDeVida/events/HojaDeVidaCreada.java,1\2\1280ccb908764d6395870e68f586768fa5c8f248
 Å
 Qddd/src/main/java/com/hdv/ddd/GestionEducacion/events/GestionEducacionCreada.java,b\4\b4338420ca4b6ba07a6d0c8755aa9ad0234746f1
 m
@@ -53,14 +49,10 @@ w
 Gddd/src/main/java/com/hdv/ddd/Colaborador/events/ColaboradorCreado.java,1\a\1a56da491d84f310932a8fc78078ca4aa1f88a57
 w
 Gddd/src/main/java/com/hdv/ddd/Experiencia/events/ExperienciaCreada.java,a\6\a63849887578ae06e0a271a8591ab30bdd8b913d
-q
-Addd/src/main/java/com/hdv/ddd/Experiencia/ExperienciaLaboral.java,4\9\49f2175331a37f39155dca66a64c8f933908c4fa
 Ñ
 Tddd/src/main/java/com/hdv/ddd/GestionCertificacion/events/CertificacionAgregada.java,e\2\e2f014eb4640b9b0c777939e36b80702549d02f4
 p
 @ddd/src/main/java/com/hdv/ddd/Experiencia/ExperienciaChange.java,c\2\c2149ed3ccf6f6ebc8bd792ce8797f8d28e6f8a9
-u
-Eddd/src/main/java/com/hdv/ddd/GestionCertificacion/Certificacion.java,e\e\ee729a9bcd6a4e304eb16533896361bd826ecd44
 m
 =ddd/src/main/java/com/hdv/ddd/GestionEducacion/Educacion.java,9\e\9e3ac82fa2d4488228662276700422ce5a8c225c
 p
@@ -81,14 +73,10 @@ Pddd/src/main/java/com/hdv/ddd/Colaborador/commands/ActualizarNombreCompleto.jav
 Sddd/src/main/java/com/hdv/ddd/Colaborador/commands/ActualizarFechaDeNacimiento.java,e\8\e8fbb759a576617f120331f25389601b2b3f3a82
 x
 Hddd/src/main/java/com/hdv/ddd/Colaborador/commands/ActualizarGenero.java,1\7\1724730ff8393a576c4b854f03be6f17c3c5ed02
-j
-:ddd/src/main/java/com/hdv/ddd/Colaborador/Colaborador.java,f\8\f809139a1235df9265b16cad6dbd89c33fa94768
 v
 Fddd/src/main/java/com/hdv/ddd/Colaborador/commands/ActualizarArea.java,3\1\31d7b31237be014f12c0b7df766e64ee92976a3c
 x
 Hddd/src/main/java/com/hdv/ddd/Colaborador/commands/CrearColaborador.java,c\5\c52c748fe7037cb89ddbe0f1c70e35310355e137
-j
-:ddd/src/main/java/com/hdv/ddd/Experiencia/Experiencia.java,6\5\6507ef0d8434c5b77db2c3e4f37124b32cfbf832
 x
 Hddd/src/main/java/com/hdv/ddd/Experiencia/commands/CrearExperiencia.java,b\5\b5711f711aa901395019da5b61cf5e9921c3b107
 Å
@@ -103,12 +91,8 @@ Zddd/src/main/java/com/hdv/ddd/GestionCertificacion/commands/CrearGestionCertifi
 Uddd/src/main/java/com/hdv/ddd/GestionCertificacion/commands/AgregarCertificacion.java,7\f\7fb5bcea7e59b7b91a94f78c32db689fb7be8b4d
 é
 ^ddd/src/main/java/com/hdv/ddd/GestionCertificacion/commands/ActualizarNombreCertificacion.java,3\7\370f56fd8a4ca0d32a622f76b5e0e427a16cc999
-ì
-cddd/src/main/java/com/hdv/ddd/GestionCertificacion/commands/ActualizarInstitucionCertificacion.java,4\6\46b2497ca0b081126e153fa0df82dbfb079e2ac7
 è
 _ddd/src/main/java/com/hdv/ddd/GestionCertificacion/commands/ActualizarPeriodoCertificacion.java,6\f\6f1a2f69e4f01132eaf31383e31592e327f474f6
-|
-Lddd/src/main/java/com/hdv/ddd/GestionCertificacion/GestionCertificacion.java,a\e\aec6e9c6f991211db79c22c1a5bbc129c9e143ea
 Ç
 Rddd/src/main/java/com/hdv/ddd/GestionEducacion/commands/CrearGestionEducacion.java,6\4\649a192998cbbcbe49c33c6460f65b97878cb3e5
 }
@@ -119,10 +103,6 @@ Tddd/src/main/java/com/hdv/ddd/GestionEducacion/commands/ActualizarTipoEducacion
 [ddd/src/main/java/com/hdv/ddd/GestionEducacion/commands/ActualizarInstitucionEducacion.java,2\e\2e8cddbbb5a8bd2c03dc0bbfb06e97b6ce75e290
 á
 Wddd/src/main/java/com/hdv/ddd/GestionEducacion/commands/ActualizarPeriodoEducacion.java,d\7\d7eefde19ed3a108e21ae420436549dd56242ca8
-t
-Dddd/src/main/java/com/hdv/ddd/GestionEducacion/GestionEducacion.java,c\f\cf2edec6911e661548ba2187ca730c2c425582c9
-h
-8ddd/src/main/java/com/hdv/ddd/HojaDeVida/HojaDeVida.java,f\c\fcc12a928c5b108cdc60825a40f64294f2e85dee
 v
 Fddd/src/main/java/com/hdv/ddd/HojaDeVida/commands/CrearHojaDeVida.java,e\0\e03e084c48b026bb2e253ded1dc4389e50858f49
 n
