@@ -9,12 +9,13 @@ import com.hdv.ddd.valuesGenerics.HojaDeVidaId;
 import com.hdv.ddd.valuesGenerics.Institucion;
 import com.hdv.ddd.valuesGenerics.Periodo;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Experiencia extends AggregateEvent<ExperienciaId> {
 
     protected HojaDeVidaId hojaDeVidaId;
-    protected ExperienciaLaboralId experienciaLaboralId;
+    protected List<ExperienciaLaboral> experiencias;
 
     public Experiencia(ExperienciaId entityId, HojaDeVidaId hojaDeVidaId) {
         super(entityId);
@@ -47,7 +48,11 @@ public class Experiencia extends AggregateEvent<ExperienciaId> {
         appendChange(new ConocimientosAdquiridosActualizados(experienciaLaboralId, conocimientosAdquiridos)).apply();
     }
 
+    public HojaDeVidaId hojaDeVidaId() {
+        return hojaDeVidaId;
+    }
 
-
-
+    public List<ExperienciaLaboral> experiencias() {
+        return experiencias;
+    }
 }
