@@ -15,7 +15,7 @@ public class AgregarExperienciaLaboralUseCase extends UseCase<RequestCommand<Agr
         var command = agregarExperienciaLaboral.getCommand();
         var experiencia = Experiencia.from(command.getExperienciaId(), retrieveEvents());
 
-        if(experiencia.experiencias().size() > 5){
+        if(experiencia.experiencias().size() >= 5){
             throw new BusinessException(command.getExperienciaId().value(), "No es posible registrar más de 5 experiencias laborales");
         }
 

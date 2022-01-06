@@ -14,7 +14,7 @@ public class ConocimientosAdquiridos implements ValueObject<String> {
         if(this.value.isBlank()){
             throw new IllegalArgumentException("El campo de conocimientos adquiridios no puede ser vacío.");
         }
-        if(this.value.length() < 100 || this.value.length() > 1000){
+        if(this.value.length() < 50 || this.value.length() > 1000){
             throw new IllegalArgumentException("El campo de conocimientos adquiridos no puede tener menos de 100 ni más de 1000 carácteres con espacios incluidos");
         }
     }
